@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הצטרפו לצוות 3 – עבודה עם כסף טוב והמון זמן פנוי</title>
+    <title>השאירו פרטים עכשיו</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap');
 
@@ -28,13 +29,22 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(12px);
             animation: fadeIn 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow-x: hidden;
         }
 
         h1 {
-            font-size: 38px;
+            font-size: 48px;
             font-weight: bold;
             margin-bottom: 20px;
             text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+            width: calc(100% - 10px);
+            line-height: 1.2;
+            margin-left: 5px;
+            margin-right: 5px;
         }
 
         p {
@@ -60,8 +70,10 @@
             border-radius: 8px;
             font-size: 22px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            text-align: center;
+            justify-content: center;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -70,11 +82,17 @@
         }
 
         .form-container {
-            margin-top: 30px;
+            margin-top: 14px;
             display: flex;
             flex-direction: column;
             gap: 15px;
             align-items: center;
+        }
+
+        .form-container label {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffdd57;
         }
 
         .form-container input {
@@ -97,6 +115,15 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
+        .form-header {
+            font-size: 42px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+            margin-bottom: 10px;
+        }
+
         .cta {
             display: block;
             margin-top: 15px;
@@ -107,7 +134,7 @@
             background: #25D366;
             text-decoration: none;
             border-radius: 8px;
-            transition: 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-align: center;
             cursor: pointer;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
@@ -115,16 +142,25 @@
             border: none;
             width: 80%;
             max-width: 400px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) translateZ(0);
+            will-change: transform, box-shadow;
         }
 
         .cta:hover {
             background: #1EBE5F;
-            transform: scale(1.08);
+            transform: perspective(1000px) translateZ(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta:active {
+            transform: perspective(1000px) translateZ(-5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
 
@@ -132,6 +168,14 @@
             margin-top: 30px;
             font-size: 18px;
             color: #ffdd57;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer .copyright {
+            font-size: 6px;
+            color: #fff;
         }
 
         #message {
@@ -146,10 +190,116 @@
             max-width: 400px;
         }
 
+        #message.error {
+            color: red;
+            background-color: #ffcccb;
+            border: 1px solid red;
+        }
+
+        /* התאמות למובייל */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+                line-height: 1.3;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            p {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+            .benefits li {
+                font-size: 16px;
+                padding: 12px;
+                margin: 8px 0;
+            }
+
+            .form-container {
+                margin-top: 10px;
+                gap: 10px;
+            }
+
+            .form-container label {
+                font-size: 16px;
+            }
+
+            .form-container input {
+                width: 90%;
+                max-width: none;
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .form-header {
+                font-size: 32px;
+            }
+
+            .cta {
+                width: 90%;
+                max-width: none;
+                font-size: 18px;
+                padding: 14px;
+                animation: none;
+            }
+
+            .footer {
+                margin-top: 20px;
+                font-size: 16px;
+                gap: 5px;
+            }
+
+            .footer .copyright {
+                font-size: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .benefits li {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .form-header {
+                font-size: 26px;
+            }
+
+            .form-container label {
+                font-size: 14px;
+            }
+
+            .form-container input {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .cta {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .footer {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>הצטרפו לצוות 3 – עבודה עם כסף טוב והמון זמן פנוי</h1>
         <p>רוצה שיעבירו לך כסף לחשבון תוך כדי שאתה יושב בנוחות על הכיסא?  
@@ -157,7 +307,7 @@
 
         <ul class="benefits">
             <li>💸 40 ש"ח לשעה</li>
-            <li>🪑 יושבים בנחת, פותחים שער בלחיצת כפתור, עושים סיבוב קצר פעמיים במשמרת</li>
+            <li>🪘 יושבים בנחת, פותחים שער בלחיצת כפתור, עושים סיבוב קצר פעמיים במשמרת</li>
             <li>🕒 משמרות גמישות (משרה מלאה/חלקית, משמרות בוקר בעיקר) – מתאים גם ללימודים או לעבודה נוספת</li>
             <li>🎁 קורס נשק במתנה + אקדח אישי + כספת + תנאים סוציאליים מהיום הראשון</li>
             <li>🌟 עבודה נוחה לנשים ולגברים עם הזדמנויות קידום אמיתיות</li>
@@ -165,72 +315,69 @@
         </ul>
 
         <form id="contactForm" class="form-container" method="POST">
-            <input type="text" name="שם" placeholder="שם" required>
-            <input type="tel" name="מספר טלפון" placeholder="מספר טלפון" required>
-            <button type="submit" class="cta" id="submit-button">📩 בכפתור הזה שולחים את הפרטים וזהו, נשאר רק להתפלל שתתקבלו</button>
+            <h2 class="form-header">השאירו פרטים עכשיו</h2>
+            <label for="entry.1902344992">איך נקרא לך?</label>
+            <input type="text" name="entry.1902344992" placeholder="אלי ישראלי" required>
+            <label for="entry.2116920849">דוא"ל לקבלת שאלון התאמה</label>
+            <input type="email" name="entry.2116920849" placeholder="eli-israeli@gmail.com" required>
+            <button type="submit" class="cta">🚀שתיים שלוש, ש... גר🚀</button>
         </form>
 
         <div id="message"></div>
 
-        <p class="footer">מספר המקומות מוגבל – אל תפספס\י את ההזדמנות</p>
+        <div class="footer">
+            <p>מספר המקומות מוגבל – אל תפספס\י את ההזדמנות</p>
+            <p class="copyright">© 2025 team3shalosh@gmail.com. כל הזכויות שמורות.</p>
+        </div>
     </div>
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function (e) {
             e.preventDefault(); // מונע את שליחת הטופס בדרך הרגילה
 
-            document.getElementById("message").textContent = "שולח פרטים...";
-            document.getElementById("message").style.display = "block";
-            document.getElementById("submit-button").disabled = true;
-
-            // איסוף הנתונים מהטופס
-            var formData = new FormData(this);
-            var keyValuePairs = [];
-            for (var pair of formData.entries()) {
-                keyValuePairs.push(pair[0] + "=" + pair[1]);
+            // הוספת רטט קל בעת לחיצה (במובייל)
+            if ("vibrate" in navigator) {
+                navigator.vibrate(50); // רטט של 50 מילישניות
             }
-            var formDataString = keyValuePairs.join("&");
 
-            // שליחת ה-POST ל-Google Apps Script
-            fetch(
-                "https://script.google.com/macros/s/AKfycbw0yqIz4DVBOJRbC-5AGoJMmx7beT8RvgRfVa-OHPuSGmgNqEQc18WhyxEqUeovhCDo/exec",
-                {
-                    redirect: "follow",
-                    method: "POST",
-                    body: formDataString,
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8",
-                    },
-                }
-            )
-            .then(function (response) {
-                if (response.ok) {
-                    return response;
-                } else {
-                    throw new Error("שליחת הפרטים נכשלה");
-                }
+            const messageDiv = document.getElementById("message");
+            messageDiv.textContent = "שולח פרטים...";
+            messageDiv.style.display = "block";
+            messageDiv.classList.remove("error");
+
+            const formData = new FormData(this);
+            const keyValuePairs = [];
+            for (const pair of formData.entries()) {
+                keyValuePairs.push(`${pair[0]}=${encodeURIComponent(pair[1])}`);
+            }
+            const formDataString = keyValuePairs.join("&");
+
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLSdEvb0xX27j0K3jK8_Loue0Tbfcycjw8tqX3Ht3pX-1zpxSLw/formResponse", {
+                method: "POST",
+                body: formDataString,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                mode: "no-cors"
             })
-            .then(function (data) {
-                // הצגת הודעת הצלחה
-                document.getElementById("message").textContent = "הפרטים נשלחו בהצלחה";
-                document.getElementById("message").style.backgroundColor = "green";
-                document.getElementById("message").style.color = "beige";
-                document.getElementById("submit-button").disabled = false;
+            .then(() => {
+                messageDiv.textContent = "הפרטים נשלחו בהצלחה!";
+                messageDiv.style.display = "block";
+                messageDiv.classList.remove("error");
                 document.getElementById("contactForm").reset();
 
-                setTimeout(function () {
-                    document.getElementById("message").textContent = "";
-                    document.getElementById("message").style.display = "none";
-                }, 2600);
+                setTimeout(() => {
+                    messageDiv.style.display = "none";
+                    messageDiv.textContent = "";
+                }, 3000);
             })
-            .catch(function (error) {
-                console.error(error);
-                document.getElementById("message").textContent = "שגיאה בשליחת הפרטים. נסה שוב";
-                document.getElementById("message").style.display = "block";
-                document.getElementById("submit-button").disabled = false;
+            .catch((error) => {
+                console.error("Error:", error);
+                messageDiv.textContent = "שגיאה בשליחת הפרטים. נסה שוב.";
+                messageDiv.style.display = "block";
+                messageDiv.classList.add("error");
             });
         });
     </script>
-
 </body>
 </html>
