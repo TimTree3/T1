@@ -317,9 +317,11 @@
         <form id="contactForm" class="form-container" method="POST">
             <h2 class="form-header">השאירו פרטים עכשיו</h2>
             <label for="entry.1902344992">איך נקרא לך?</label>
-            <input type="text" name="entry.1902344992" placeholder="אלי ישראלי" required>
+            <input type="text" name="entry.1902344992" id="entry.1902344992" placeholder="אלי ישראלי" required>
             <label for="entry.2116920849">דוא"ל לקבלת שאלון התאמה</label>
-            <input type="email" name="entry.2116920849" placeholder="eli-israeli@gmail.com" required>
+            <input type="email" name="entry.2116920849" id="entry.2116920849" placeholder="eli-israeli@gmail.com" required>
+            <label for="entry.1315584996">מספר טלפון</label>
+            <input type="tel" name="entry.1315584996" id="entry.1315584996" placeholder="052-1234567" required>
             <button type="submit" class="cta">🚀שתיים שלוש, ש... גר🚀</button>
         </form>
 
@@ -333,11 +335,10 @@
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function (e) {
-            e.preventDefault(); // מונע את שליחת הטופס בדרך הרגילה
+            e.preventDefault();
 
-            // הוספת רטט קל בעת לחיצה (במובייל)
             if ("vibrate" in navigator) {
-                navigator.vibrate(50); // רטט של 50 מילישניות
+                navigator.vibrate(50);
             }
 
             const messageDiv = document.getElementById("message");
